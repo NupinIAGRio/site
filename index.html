@@ -163,7 +163,7 @@
                         Criado em 2009, o Núcleo de Pesquisas em Negócios Internacionais (NUPIN) do IAG PUC-Rio estuda os processos de internacionalização de empresas brasileiras.
                     </p>
                     <p>
-                        Quem busca expandir seus negócios para fora do Brasil ou da América Latina tem, neste núcleo, acesso a pesquisas, metodologias e especialistas qualificados para atender às suas necessidades. O NUPIN é vinculado ao Departamento de Administração (IAG) da PUC-Rio.
+                        Quem busca expandir seus negócios para fora do Brasil ou da América Latina tiene, neste núcleo, acesso a pesquisas, metodologias e especialistas qualificados para atender às suas necessidades. O NUPIN é vinculado ao Departamento de Administração (IAG) da PUC-Rio.
                     </p>
                     <p>
                         Fundado com o propósito de fomentar estudos sobre temas globais no campo da administração e economia, o núcleo atua como um ponto de convergência entre ensino, pesquisa e extensão.
@@ -841,7 +841,7 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <!-- Info & Form -->
+                <!-- Info & Form (Updated with direct mailto action) -->
                 <div class="lg:col-span-6 space-y-8">
                     <div class="border-2 border-wiredBlack p-8 bg-white shadow-[6px_6px_0px_#111111] space-y-6">
                         <h3 class="text-xl font-black uppercase text-wiredBlack">IAG – Escola de Negócios da PUC-Rio</h3>
@@ -870,8 +870,8 @@
                             </div>
                         </div>
 
-                        <!-- Contact Form simulated -->
-                        <form onsubmit="event.preventDefault(); showMessageModal('Mensagem enviada com sucesso! Entraremos em contato em breve.');" class="space-y-4 pt-4 border-t border-gray-200">
+                        <!-- Contact Form configured with mailto action -->
+                        <form onsubmit="event.preventDefault(); window.location.href='mailto:nupin@iag.puc-rio.br?subject=Contato via Site NUPIN - ' + encodeURIComponent(this.querySelector('input[type=text]').value) + '&body=' + encodeURIComponent(this.querySelector('textarea').value + '\n\nEnviado por: ' + this.querySelector('input[type=text]').value + ' (' + this.querySelector('input[type=email]').value + ')');" class="space-y-4 pt-4 border-t border-gray-200">
                             <div>
                                 <label class="block text-xs font-bold uppercase tracking-wider text-wiredBlack mb-1">Seu Nome</label>
                                 <input type="text" required class="w-full border-2 border-wiredBlack p-3 text-xs focus:outline-none focus:border-iagBlue font-mono" placeholder="Nome completo">
@@ -885,7 +885,7 @@
                                 <textarea rows="3" required class="w-full border-2 border-wiredBlack p-3 text-xs focus:outline-none focus:border-iagBlue font-mono" placeholder="Como podemos ajudar?"></textarea>
                             </div>
                             <button type="submit" class="w-full bg-iagBlue hover:bg-iagBlueHover text-white font-bold uppercase text-xs tracking-wider py-4 transition-all shadow-sm">
-                                Enviar Mensagem
+                                Enviar Mensagem (Abrir E-mail)
                             </button>
                         </form>
                     </div>
@@ -935,21 +935,7 @@
         </div>
     </footer>
 
-    <!-- Custom Custom Notification Modal (No alert() used) -->
-    <div id="message-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden">
-        <div class="bg-white border-4 border-wiredBlack p-8 max-w-md w-full shadow-[8px_8px_0px_#111111] text-center space-y-4">
-            <div class="w-12 h-12 bg-iagBlue text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
-                <i class="fa-solid fa-check"></i>
-            </div>
-            <h3 id="modal-title" class="text-lg font-black uppercase text-wiredBlack">Sucesso</h3>
-            <p id="modal-text" class="text-xs text-gray-700 font-mono"></p>
-            <button onclick="closeMessageModal()" class="bg-wiredBlack hover:bg-iagBlue text-white text-xs font-bold uppercase tracking-wider px-6 py-3 transition-colors w-full">
-                Fechar
-            </button>
-        </div>
-    </div>
-
-    <!-- JavaScript for Mobile Menu & Modal -->
+    <!-- JavaScript for Mobile Menu -->
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -965,16 +951,6 @@
                 mobileMenu.classList.add('hidden');
             });
         });
-
-        // Modal functions (Replacement for alert)
-        function showMessageModal(text) {
-            document.getElementById('modal-text').innerText = text;
-            document.getElementById('message-modal').classList.remove('hidden');
-        }
-
-        function closeMessageModal() {
-            document.getElementById('message-modal').classList.add('hidden');
-        }
     </script>
 </body>
 </html>
